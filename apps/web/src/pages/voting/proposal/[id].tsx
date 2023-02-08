@@ -6,6 +6,7 @@ import { getProposal } from 'state/voting/helpers'
 import { ProposalState } from 'state/types'
 import Overview from 'views/Voting/Proposal/Overview'
 import { ASSET_CDN, DYNAMIC_OG_IMAGE } from 'config/constants/endpoints'
+import { PageMeta } from 'components/Layout/Page'
 
 const ProposalPage = ({ fallback = {} }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -41,7 +42,7 @@ ProposalPage.Meta = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       />
     )
   }
-  return null
+  return <PageMeta />
 }
 
 export const getStaticProps = (async ({ params }) => {

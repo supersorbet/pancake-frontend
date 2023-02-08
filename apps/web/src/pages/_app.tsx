@@ -82,12 +82,13 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
       </Head>
       <DefaultSeo {...SEO} />
       <Providers store={store}>
-        <PageMeta />
-        {(Component as NextPageWithLayout).Meta && (
+        {(Component as NextPageWithLayout).Meta ? (
           <ErrorBoundary>
             {/* @ts-ignore */}
             <Component.Meta {...pageProps} />
           </ErrorBoundary>
+        ) : (
+          <PageMeta />
         )}
         <Blocklist>
           {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}

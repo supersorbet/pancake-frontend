@@ -53,20 +53,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   if (template === 'swap') {
-    const input_ = searchParams.get('inputSymbol')
-    const output_ = searchParams.get('outputSymbol')
-    const inputImage_ = searchParams.get('inputImage')
-    const outputImage_ = searchParams.get('outputImage')
+    const inputSymbol = searchParams.get('inputSymbol')
+    const outputSymbol = searchParams.get('outputSymbol')
+    const inputImage = searchParams.get('inputImage')
+    const outputImage = searchParams.get('outputImage')
 
-    const [inputSymbol, outputSymbol, inputImage, outputImage] = [input_, output_, inputImage_, outputImage_].map(
-      (param) => zString.parse(param),
-    )
+    // const [inputSymbol, outputSymbol, inputImage, outputImage] = [input_, output_, inputImage_, outputImage_].map(
+    //   (param) => zString.parse(param),
+    // )
 
     comp = (
       <SwapOgImage
+        // @ts-ignore
         inputImage={inputImage}
+        // @ts-ignore
         outputImage={outputImage}
+        // @ts-ignore
         inputSymbol={inputSymbol}
+        // @ts-ignore
         outputSymbol={outputSymbol}
       />
     )

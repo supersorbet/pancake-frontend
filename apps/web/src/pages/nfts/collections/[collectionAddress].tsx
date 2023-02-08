@@ -1,3 +1,4 @@
+import { PageMeta } from 'components/Layout/Page'
 import { ASSET_CDN, DYNAMIC_OG_IMAGE } from 'config/constants/endpoints'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
@@ -46,7 +47,7 @@ CollectionPage.Meta = (props: InferGetStaticPropsType<typeof getStaticProps>) =>
     }
   }
 
-  return null
+  return <PageMeta />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
