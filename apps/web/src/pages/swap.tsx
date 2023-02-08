@@ -65,9 +65,9 @@ function SwapMetaSEO({ inputCurrency, outputCurrency }: { inputCurrency: string;
             {
               url: `${DYNAMIC_OG_IMAGE}/swap${query}`,
             },
-            {
-              url: `${ASSET_CDN}/web/og/swap.jpg`,
-            },
+            // {
+            //   url: `${ASSET_CDN}/web/og/swap.jpg`,
+            // },
           ],
         }}
       />
