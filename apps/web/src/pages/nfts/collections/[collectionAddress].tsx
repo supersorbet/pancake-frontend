@@ -20,6 +20,7 @@ const CollectionPage = ({ fallback = {} }: InferGetStaticPropsType<typeof getSta
 }
 
 CollectionPage.Meta = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(props)
   if (props.collectionAddress) {
     const collection =
       props.fallback?.[unstable_serialize(['nftMarket', 'collections', props.collectionAddress.toLowerCase()])]?.[

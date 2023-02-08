@@ -5,6 +5,7 @@ import { NextSeo } from 'next-seo'
 import { getProposal } from 'state/voting/helpers'
 import { ProposalState } from 'state/types'
 import Overview from 'views/Voting/Proposal/Overview'
+import { ASSET_CDN, DYNAMIC_OG_IMAGE } from 'config/constants/endpoints'
 
 const ProposalPage = ({ fallback = {} }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -32,6 +33,10 @@ ProposalPage.Meta = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <NextSeo
         openGraph={{
           description: proposal.title,
+          images: [
+            { url: `${DYNAMIC_OG_IMAGE}/voting?title=${proposal.title}` },
+            { url: `${ASSET_CDN}/web/og/voting.jpg` },
+          ],
         }}
       />
     )

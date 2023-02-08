@@ -19,6 +19,7 @@ const SwapPage = () => {
 
 function SwapMeta() {
   const { query } = useRouter()
+  console.log(query, 'query')
   if (
     typeof query.inputCurrency === 'string' &&
     typeof query.outputCurrency === 'string' &&
