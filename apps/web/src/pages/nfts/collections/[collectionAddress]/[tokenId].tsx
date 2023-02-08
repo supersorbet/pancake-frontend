@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = (async ({ params }) => {
   const { collectionAddress, tokenId } = params
 
   if (typeof collectionAddress !== 'string' || typeof tokenId !== 'string') {
@@ -60,9 +60,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           [unstable_serialize(['nftMarket', 'collections', collectionAddress.toLowerCase()])]: collection,
         }),
       },
+      collectionAddress: nft.collectionAddress,
+      tokenId: nft.tokenId,
     },
     revalidate: 60 * 60 * 6, // 6 hours
   }
-}
+}) satisfies GetStaticProps
 
 export default IndividualNFTPage

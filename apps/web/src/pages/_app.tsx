@@ -25,7 +25,7 @@ import { persistor, useStore } from 'state'
 import { usePollBlockNumber } from 'state/block/hooks'
 import { Blocklist, Updaters } from '..'
 import { SEO } from '../../next-seo.config'
-import { SentryErrorBoundary } from '../components/ErrorBoundary'
+import { ErrorBoundary, SentryErrorBoundary } from '../components/ErrorBoundary'
 import Menu from '../components/Menu'
 import Providers from '../Providers'
 import GlobalStyle from '../style/Global'
@@ -84,8 +84,10 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
       <Providers store={store}>
         <PageMeta />
         {(Component as NextPageWithLayout).Meta && (
-          // @ts-ignore
-          <Component.Meta {...pageProps} />
+          <ErrorBoundary>
+            {/* @ts-ignore */}
+            <Component.Meta {...pageProps} />
+          </ErrorBoundary>
         )}
         <Blocklist>
           {(Component as NextPageWithLayout).mp ? <MPGlobalHooks /> : <GlobalHooks />}

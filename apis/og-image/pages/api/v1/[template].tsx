@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       (param) => zString.parse(param),
     )
 
-    return (
+    comp = (
       <SwapOgImage
         inputImage={inputImage}
         outputImage={outputImage}
