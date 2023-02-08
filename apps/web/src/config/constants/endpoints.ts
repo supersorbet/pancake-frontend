@@ -49,4 +49,4 @@ export const BLOCKS_CLIENT_WITH_CHAIN = {
 
 export const ASSET_CDN = 'https://assets.pancakeswap.finance'
 
-export const DYNAMIC_OG_IMAGE = 'https://og-image.pancake.run/v1'
+export const DYNAMIC_OG_IMAGE = 'https://og-image-git-pan-1018-update-og-image.pancake.run/v1'
