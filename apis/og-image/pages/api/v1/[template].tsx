@@ -42,12 +42,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   if (template === 'nft') {
     const title_ = searchParams.get('title')
-    const price_ = searchParams.get('price')
-    const nativePrice_ = searchParams.get('nativePrice')
     const image_ = searchParams.get('image')
+    const price = searchParams.get('price')
+    const nativePrice = searchParams.get('nativePrice')
+
     const title = zString.parse(title_)
-    const price = zString.parse(price_)
-    const nativePrice = zString.parse(nativePrice_)
     const image = zString.parse(image_)
 
     comp = <NFTOgImage title={title} price={price} image={image} nativePrice={nativePrice} />

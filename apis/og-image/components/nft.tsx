@@ -10,9 +10,9 @@ export function NFTOgImage({
   nativePrice,
 }: {
   title: string
-  price: string
+  price: string | null
   image: string
-  nativePrice: string
+  nativePrice: string | null
 }) {
   return (
     <div
@@ -45,26 +45,30 @@ export function NFTOgImage({
         >
           {title}
         </div>
-        <div
-          style={{
-            display: 'flex',
-            maxWidth: '300px',
-            color: 'white',
-            textShadow: '0px 3px 0px rgba(0, 0, 0, 0.5)',
-          }}
-        >
-          {nativePrice}
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            maxWidth: '300px',
-            color: 'white',
-            textShadow: '0px 3px 0px rgba(0, 0, 0, 0.5)',
-          }}
-        >
-          (~{price})
-        </div>
+        {nativePrice && (
+          <div
+            style={{
+              display: 'flex',
+              maxWidth: '300px',
+              color: 'white',
+              textShadow: '0px 3px 0px rgba(0, 0, 0, 0.5)',
+            }}
+          >
+            {nativePrice}
+          </div>
+        )}
+        {price && (
+          <div
+            style={{
+              display: 'flex',
+              maxWidth: '300px',
+              color: 'white',
+              textShadow: '0px 3px 0px rgba(0, 0, 0, 0.5)',
+            }}
+          >
+            (~{price})
+          </div>
+        )}
       </div>
       <img
         width={264}
