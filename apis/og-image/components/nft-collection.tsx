@@ -7,7 +7,7 @@ export function NFTCollectionOgImage({
   collectionId,
 }: {
   title: string
-  volume: string
+  volume: string | null
   collectionId: string
 }) {
   return (
@@ -24,6 +24,7 @@ export function NFTCollectionOgImage({
           position: 'absolute',
           top: '128.3px',
           left: '139px',
+          objectFit: 'cover',
         }}
         alt="nft-collection-banner"
         src={`https://static-nft.pancakeswap.com/mainnet/${collectionId}/banner-lg.png`}
@@ -51,17 +52,19 @@ export function NFTCollectionOgImage({
         >
           {title}
         </div>
-        <div
-          style={{
-            display: 'flex',
-            color: 'white',
-            textShadow: '0px 3px 0px rgba(0, 0, 0, 0.5)',
-            fontSize: '28px',
-            fontWeight: 600,
-          }}
-        >
-          Volume {volume}
-        </div>
+        {volume && (
+          <div
+            style={{
+              display: 'flex',
+              color: 'white',
+              textShadow: '0px 3px 0px rgba(0, 0, 0, 0.5)',
+              fontSize: '28px',
+              fontWeight: 600,
+            }}
+          >
+            Volume {volume}
+          </div>
+        )}
       </div>
     </div>
   )

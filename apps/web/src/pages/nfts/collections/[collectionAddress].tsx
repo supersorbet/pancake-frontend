@@ -20,23 +20,24 @@ const CollectionPage = ({ fallback = {} }: InferGetStaticPropsType<typeof getSta
 }
 
 CollectionPage.Meta = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(props)
   if (props.collectionAddress) {
     const collection =
       props.fallback?.[unstable_serialize(['nftMarket', 'collections', props.collectionAddress.toLowerCase()])]?.[
         props.collectionAddress
       ]
     if (collection) {
+      const volume = (+collection.totalVolumeBNB).toFixed(0)
       const query = qs.stringify(
         {
           title: collection.name,
           collectionId: props.collectionAddress,
-          volume: `${collection.totalVolumeBNB} BNB`,
+          volume: +volume > 0 && `${volume} BNB`,
         },
         { addQueryPrefix: true },
       )
       return (
         <NextSeo
+          title={`${collection.name} - Collection`}
           openGraph={{
             images: [{ url: `${DYNAMIC_OG_IMAGE}/nft-collection${query}` }, { url: `${ASSET_CDN}/web/og/nft.jpg` }],
           }}

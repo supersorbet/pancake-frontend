@@ -34,7 +34,7 @@ ProposalPage.Meta = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         openGraph={{
           description: proposal.title,
           images: [
-            { url: `${DYNAMIC_OG_IMAGE}/voting?title=${proposal.title}` },
+            { url: `${DYNAMIC_OG_IMAGE}/voting?title=${encodeURIComponent(proposal.title)}` },
             { url: `${ASSET_CDN}/web/og/voting.jpg` },
           ],
         }}

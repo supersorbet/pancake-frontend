@@ -1,5 +1,5 @@
 import { WrappedTokenInfo } from '@pancakeswap/token-lists'
-import { ASSET_CDN, DYNAMIC_OG_IMAGE } from 'config/constants/endpoints'
+import { DYNAMIC_OG_IMAGE } from 'config/constants/endpoints'
 import { useAllTokens } from 'hooks/Tokens'
 import useNativeCurrency from 'hooks/useNativeCurrency'
 import { NextSeo } from 'next-seo'

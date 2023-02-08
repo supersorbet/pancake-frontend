@@ -75,10 +75,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   if (template === 'nft-collection') {
     const title_ = searchParams.get('title')
-    const volume_ = searchParams.get('volume')
+    const volume = searchParams.get('volume')
     const collectionId_ = searchParams.get('collectionId')
 
-    const [title, volume, collectionId] = [title_, volume_, collectionId_].map((param) => zString.parse(param))
+    const [title, collectionId] = [title_, collectionId_].map((param) => zString.parse(param))
 
     comp = <NFTCollectionOgImage title={title} volume={volume} collectionId={collectionId} />
   }
