@@ -7,11 +7,10 @@ export const OG_TEMPLATE_IMAGE_DEFAULT = `${ASSET_BASE_PATH}/web/og-template` as
 
 export const FONT_BOLD = `${ASSET_BASE_PATH}/web/fonts/Kanit/Kanit-Bold.ttf`
 
-export const zTemplate = z.enum(['swap', 'voting', 'nft', 'nft-collection', 'info-pair', 'info-token'])
+export const zTemplate = z.enum(['voting', 'nft', 'nft-collection', 'info-pair', 'info-token'])
 type TemplateType = typeof zTemplate._type
 
 export const OG_TEMPLATE_PATH = {
-  swap: '/swap.jpg',
   voting: '/voting.jpg',
   nft: '/nft.jpg',
   'nft-collection': '/nft-collection.jpg',
