@@ -306,6 +306,7 @@ export default function SwapCommitButton({
           onSwapHandler()
         }}
         id="swap-button"
+        className="smart-swap-button"
         width="100%"
         disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError || !approved}
       >

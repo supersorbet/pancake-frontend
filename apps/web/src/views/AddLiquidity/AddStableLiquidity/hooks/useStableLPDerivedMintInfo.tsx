@@ -227,7 +227,7 @@ export function useStableLPDerivedMintInfo(
     stableSwapAddress: stableSwapConfig?.stableSwapAddress,
     stableSwapInfoContract,
     stableSwapConfig,
-    currencyInput: currencyAAmountQuotient ? currencyA : currencyB,
+    currencyInput: currencyAAmountQuotient ? currencyA.wrapped : currencyB.wrapped,
     currencyInputAmount: currencyAAmountQuotient || currencyBAmountQuotient,
     currencyOutputAmount: currencyAAmountQuotient ? currencyBAmountQuotient : currencyAAmountQuotient,
   })
