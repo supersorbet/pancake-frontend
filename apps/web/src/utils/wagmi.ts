@@ -79,10 +79,8 @@ export const walletConnectV2Connector = new WalletConnectConnector({
   // v2 not supported on testnet
   chains: MAINNET_CHAINS,
   options: {
-    qrcode: true,
-    version: '2',
+    showQrModal: true,
     projectId: 'e542ff314e26ff34de2d4fba98db70bb',
-    logger: 'info',
   },
 })
 
@@ -90,8 +88,7 @@ export const walletConnectNoQrCodeConnector = new WalletConnectConnector({
   // v2 not supported on testnet
   chains: MAINNET_CHAINS,
   options: {
-    qrcode: false,
-    version: '2',
+    showQrModal: false,
     projectId: 'e542ff314e26ff34de2d4fba98db70bb',
   },
 })

@@ -1,10 +1,9 @@
 import { WalletConfigV2 } from '@pancakeswap/ui-wallets'
 import { WalletFilledIcon } from '@pancakeswap/uikit'
+import { getTrustWalletProvider } from '@pancakeswap/wagmi/connectors/trustWallet'
 import type { ExtendEthereum } from 'global'
 import { isFirefox } from 'react-device-detect'
-import WalletConnectProvider from '@walletconnect/universal-provider'
-import { getTrustWalletProvider } from '@pancakeswap/wagmi/connectors/trustWallet'
-import { metaMaskConnector, walletConnectNoQrCodeConnector } from '../utils/wagmi'
+import { metaMaskConnector } from '../utils/wagmi'
 
 export enum ConnectorNames {
   MetaMask = 'metaMask',
@@ -17,18 +16,10 @@ export enum ConnectorNames {
   TrustWallet = 'trustWallet',
 }
 
-const delay = (t: number) => new Promise((resolve) => setTimeout(resolve, t))
+// const delay = (t: number) => new Promise((resolve) => setTimeout(resolve, t))
 
-const createQrCode = (chainId: number, connect) => async () => {
-  connect({ connector: walletConnectNoQrCodeConnector, chainId })
-
-  // wait for WalletConnect to setup in order to get the uri
-  await delay(1000)
-  const provider = (await walletConnectNoQrCodeConnector.getProvider()) as WalletConnectProvider
-  const { uri } = provider
-  console.info(uri)
-
-  return uri
+const createQrCode = (_chainId: number, _connect) => async () => {
+  return undefined
 }
 
 const isMetamaskInstalled = () => {
